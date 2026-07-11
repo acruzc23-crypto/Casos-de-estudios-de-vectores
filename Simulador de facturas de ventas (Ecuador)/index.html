@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de abarrotes</title>
+</head>
+<body>
+    <table border="2" align="center" id="cajero">
+        <thead>
+            <tr>
+                <th colspan ="2" align="center">Cajero de tienda</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1">Productos</td>
+                <td><select id="productos" onchange="mostrarPrecio()">
+                    <option value="Jugo" data-precio="1.50" selected>Jugo</option>
+                    <option value="aceite" data-precio="2.00">Aceite</option>
+                    <option value="azucar" data-precio="1.25">Azúcar</option>
+                    <option value="sal" data-precio="0.75">Sal</option>
+                    <option value="leche" data-precio="2.50">Leche</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Precio unitario</td>
+                <td><input type="text" id="precio" readonly></td>
+            </tr>
+            <tr>
+                <td>Cantidad del producto</td>
+                <td><input type="number" id="cantidad" min="1" value="1"></td>
+            </tr>
+            <tr>
+                <td align="center"><button onclick="agregarProducto()">Agregar producto</button></td>
+                <td><button onclick="generarFactura()">Generar factura</button></td>
+            </tr>
+        </tbody>
+    </table>
 
+    <h3 align="center">Detalle de la factura</h3>
+
+    <table border="2" align="center" id="factura">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio unitario</th>
+                <th>Subtotal</th>
+                <th>IVA</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="detalleFactura">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" align="right">Total:</td>
+                <td id="totalSubtotal">0.00</td>
+                <td id="totalIVA">0.00</td>
+                <td id="totalFinal">0.00</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="facturas.js"></script>
+</body>
+</html>
